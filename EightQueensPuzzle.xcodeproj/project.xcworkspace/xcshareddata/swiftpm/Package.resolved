@@ -1,0 +1,16 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "SwiftCSP",
+        "repositoryURL": "https://github.com/davecom/SwiftCSP.git",
+        "state": {
+          "branch": null,
+          "revision": "04bcffcc7aa67cd4952cbf07610709e9852bc9fa",
+          "version": "0.9.8"
+        }
+      }
+    ]
+  },
+  "version": 1
+}

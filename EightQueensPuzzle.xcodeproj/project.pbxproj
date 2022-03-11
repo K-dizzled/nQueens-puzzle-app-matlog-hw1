@@ -9,13 +9,16 @@
 /* Begin PBXBuildFile section */
 		75F39FE327DA3444008A4E4A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F39FE227DA3444008A4E4A /* AppDelegate.swift */; };
 		75F39FE527DA3444008A4E4A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F39FE427DA3444008A4E4A /* SceneDelegate.swift */; };
-		75F39FE727DA3444008A4E4A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F39FE627DA3444008A4E4A /* ViewController.swift */; };
-		75F39FEA27DA3444008A4E4A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75F39FE827DA3444008A4E4A /* Main.storyboard */; };
+		75F39FE727DA3444008A4E4A /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F39FE627DA3444008A4E4A /* RootViewController.swift */; };
 		75F39FEC27DA3446008A4E4A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 75F39FEB27DA3446008A4E4A /* Assets.xcassets */; };
 		75F39FEF27DA3446008A4E4A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75F39FED27DA3446008A4E4A /* LaunchScreen.storyboard */; };
 		75F39FFA27DA3447008A4E4A /* EightQueensPuzzleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F39FF927DA3447008A4E4A /* EightQueensPuzzleTests.swift */; };
 		75F3A00427DA3447008A4E4A /* EightQueensPuzzleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F3A00327DA3447008A4E4A /* EightQueensPuzzleUITests.swift */; };
 		75F3A00627DA3447008A4E4A /* EightQueensPuzzleUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F3A00527DA3447008A4E4A /* EightQueensPuzzleUITestsLaunchTests.swift */; };
+		75F3A01427DA365D008A4E4A /* ChessboardFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F3A01327DA365D008A4E4A /* ChessboardFactory.swift */; };
+		75F3A01727DB7154008A4E4A /* UiView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F3A01627DB7154008A4E4A /* UiView+Extension.swift */; };
+		75F3A02027DB8036008A4E4A /* SwiftCSP in Frameworks */ = {isa = PBXBuildFile; productRef = 75F3A01F27DB8036008A4E4A /* SwiftCSP */; };
+		75F3A02227DB8382008A4E4A /* NQueensConstraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F3A02127DB8382008A4E4A /* NQueensConstraint.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,8 +42,7 @@
 		75F39FDF27DA3444008A4E4A /* EightQueensPuzzle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EightQueensPuzzle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		75F39FE227DA3444008A4E4A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		75F39FE427DA3444008A4E4A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		75F39FE627DA3444008A4E4A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		75F39FE927DA3444008A4E4A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		75F39FE627DA3444008A4E4A /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		75F39FEB27DA3446008A4E4A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		75F39FEE27DA3446008A4E4A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		75F39FF027DA3446008A4E4A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -49,6 +51,9 @@
 		75F39FFF27DA3447008A4E4A /* EightQueensPuzzleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EightQueensPuzzleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		75F3A00327DA3447008A4E4A /* EightQueensPuzzleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EightQueensPuzzleUITests.swift; sourceTree = "<group>"; };
 		75F3A00527DA3447008A4E4A /* EightQueensPuzzleUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EightQueensPuzzleUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		75F3A01327DA365D008A4E4A /* ChessboardFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChessboardFactory.swift; sourceTree = "<group>"; };
+		75F3A01627DB7154008A4E4A /* UiView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UiView+Extension.swift"; sourceTree = "<group>"; };
+		75F3A02127DB8382008A4E4A /* NQueensConstraint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NQueensConstraint.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +61,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				75F3A02027DB8036008A4E4A /* SwiftCSP in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -99,10 +105,11 @@
 		75F39FE127DA3444008A4E4A /* EightQueensPuzzle */ = {
 			isa = PBXGroup;
 			children = (
+				75F3A01527DB713D008A4E4A /* Extensions */,
+				75F3A01227DA361F008A4E4A /* Utils */,
 				75F39FE227DA3444008A4E4A /* AppDelegate.swift */,
 				75F39FE427DA3444008A4E4A /* SceneDelegate.swift */,
-				75F39FE627DA3444008A4E4A /* ViewController.swift */,
-				75F39FE827DA3444008A4E4A /* Main.storyboard */,
+				75F39FE627DA3444008A4E4A /* RootViewController.swift */,
 				75F39FEB27DA3446008A4E4A /* Assets.xcassets */,
 				75F39FED27DA3446008A4E4A /* LaunchScreen.storyboard */,
 				75F39FF027DA3446008A4E4A /* Info.plist */,
@@ -127,6 +134,23 @@
 			path = EightQueensPuzzleUITests;
 			sourceTree = "<group>";
 		};
+		75F3A01227DA361F008A4E4A /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				75F3A01327DA365D008A4E4A /* ChessboardFactory.swift */,
+				75F3A02127DB8382008A4E4A /* NQueensConstraint.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		75F3A01527DB713D008A4E4A /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				75F3A01627DB7154008A4E4A /* UiView+Extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -143,6 +167,9 @@
 			dependencies = (
 			);
 			name = EightQueensPuzzle;
+			packageProductDependencies = (
+				75F3A01F27DB8036008A4E4A /* SwiftCSP */,
+			);
 			productName = EightQueensPuzzle;
 			productReference = 75F39FDF27DA3444008A4E4A /* EightQueensPuzzle.app */;
 			productType = "com.apple.product-type.application";
@@ -215,6 +242,9 @@
 				Base,
 			);
 			mainGroup = 75F39FD627DA3444008A4E4A;
+			packageReferences = (
+				75F3A01E27DB8036008A4E4A /* XCRemoteSwiftPackageReference "SwiftCSP" */,
+			);
 			productRefGroup = 75F39FE027DA3444008A4E4A /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -233,7 +263,6 @@
 			files = (
 				75F39FEF27DA3446008A4E4A /* LaunchScreen.storyboard in Resources */,
 				75F39FEC27DA3446008A4E4A /* Assets.xcassets in Resources */,
-				75F39FEA27DA3444008A4E4A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,7 +287,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				75F39FE727DA3444008A4E4A /* ViewController.swift in Sources */,
+				75F3A02227DB8382008A4E4A /* NQueensConstraint.swift in Sources */,
+				75F3A01427DA365D008A4E4A /* ChessboardFactory.swift in Sources */,
+				75F39FE727DA3444008A4E4A /* RootViewController.swift in Sources */,
+				75F3A01727DB7154008A4E4A /* UiView+Extension.swift in Sources */,
 				75F39FE327DA3444008A4E4A /* AppDelegate.swift in Sources */,
 				75F39FE527DA3444008A4E4A /* SceneDelegate.swift in Sources */,
 			);
@@ -297,14 +329,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		75F39FE827DA3444008A4E4A /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				75F39FE927DA3444008A4E4A /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		75F39FED27DA3446008A4E4A /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -443,7 +467,6 @@
 				INFOPLIST_FILE = EightQueensPuzzle/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -470,7 +493,6 @@
 				INFOPLIST_FILE = EightQueensPuzzle/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -598,6 +620,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		75F3A01E27DB8036008A4E4A /* XCRemoteSwiftPackageReference "SwiftCSP" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/davecom/SwiftCSP.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.9.8;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		75F3A01F27DB8036008A4E4A /* SwiftCSP */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 75F3A01E27DB8036008A4E4A /* XCRemoteSwiftPackageReference "SwiftCSP" */;
+			productName = SwiftCSP;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 75F39FD727DA3444008A4E4A /* Project object */;
 }
