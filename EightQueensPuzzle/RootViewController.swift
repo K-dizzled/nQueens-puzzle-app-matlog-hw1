@@ -48,7 +48,11 @@ class RootViewController: UIViewController {
         view.addSubviews(chessboard, sizePicker)
         
         chessboardFactory.getChessPositions(numberOfQueens) { positions in
-            self.chessboard.image = self.chessboardFactory.drawQueens(positions: positions ?? [:], chessboard: self.chessboard.image!, size: self.numberOfQueens)
+            self.chessboard.image = self.chessboardFactory.drawQueens(
+                positions: positions ?? [:],
+                chessboard: self.chessboard.image!,
+                size: self.numberOfQueens
+            )
         }
     }
 
@@ -61,7 +65,10 @@ class RootViewController: UIViewController {
     }
     
     private func layoutPicker() {
-        sizePicker.frame = CGRect(x: 0, y: view.frame.height * 0.66, width: view.frame.width, height: view.frame.height * 0.34)
+        sizePicker.frame = CGRect(
+            x: 0, y: view.frame.height * 0.66,
+            width: view.frame.width, height: view.frame.height * 0.34
+        )
     }
 
     private func layoutChessboard() {
@@ -106,7 +113,11 @@ extension RootViewController : UIPickerViewDataSource, UIPickerViewDelegate {
                             self.chessboard.image = UIImage(named: "checkerboardCageWhite.svg")
                         }
                         
-                        self.chessboard.image = self.chessboardFactory.drawQueens(positions: positions ?? [:], chessboard: self.chessboard.image!, size: self.numberOfQueens)
+                        self.chessboard.image = self.chessboardFactory.drawQueens(
+                            positions: positions ?? [:],
+                            chessboard: self.chessboard.image!,
+                            size: self.numberOfQueens
+                        )
                     }
                 }
             }
