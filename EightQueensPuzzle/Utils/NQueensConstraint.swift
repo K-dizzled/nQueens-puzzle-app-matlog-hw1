@@ -6,66 +6,123 @@
 //
 
 import Foundation
-import SwiftCSP
+import MiniSat
 
-final class NQueensConstraint: ListConstraint <Int, Int> {
-    var numberOfQueens : Int = 0
-    
-    init(variables: [Int], N: Int) {
-        super.init(variables: variables)
+class NQueensPuzzleSolver {
+    func solveUsingMinisat(for queensNum: Int, completion: @escaping (MiniSat, Int) -> Void) {
+        let minisat = MiniSat()
         
-        numberOfQueens = N
-    }
-    
-    override func isSatisfied(assignment: Dictionary<Int, Int>) -> Bool {
-        for q in assignment.values {
-            // Check one per column
-            for i in (q - (q % numberOfQueens))..<q {
-                if assignment.values.firstIndex(of: i) != nil {
-                    return false
-                }
+        var variables : [Int32] = []
+        for _ in 0..<queensNum * queensNum {
+            let v = minisat.new()
+            variables.append(v)
+        }
+
+        // At least one per row
+        for i in 0..<queensNum {
+            var clause : [Int32] = []
+            for j in stride(from: i * queensNum, through: (i+1) * queensNum - 1, by: 1) {
+                clause.append(variables[j])
             }
-            var cc = q + (numberOfQueens - (q % numberOfQueens))
-            if numberOfQueens % 2 != 0 {
-                cc += 1
+
+            minisat.add(clause: clause)
+        }
+        
+        // Exactly one per row
+        for i in 0..<queensNum {
+            var clause : [Int32] = []
+            for j in stride(from: i * queensNum, through: (i+1) * queensNum - 1, by: 1) {
+                clause.append(variables[j])
             }
-            for i in (q + 1)..<cc {
-                if assignment.values.firstIndex(of: i) != nil {
-                    return false
-                }
-            }
-            
-            // Check one per diagonal
-            for i in stride(from: (q - numberOfQueens - 1), through: 0, by: -(numberOfQueens+1)) {
-                // diagonal up and back
-                guard q % numberOfQueens > i % numberOfQueens else { break }
-                if assignment.values.firstIndex(of: i) != nil {
-                    return false
-                }
-            }
-            for i in stride(from: (q - numberOfQueens + 1), through: 0, by: -(numberOfQueens - 1)) {
-                // diagonal up and forward
-                guard q % numberOfQueens < i % numberOfQueens else { break }
-                if assignment.values.firstIndex(of: i) != nil {
-                    return false
-                }
-            }
-            for i in stride(from: (q + numberOfQueens - 1), to: numberOfQueens * numberOfQueens, by: numberOfQueens - 1) {
-                // diagonal down and back
-                guard i % numberOfQueens < q % numberOfQueens else { break }
-                if assignment.values.firstIndex(of: i) != nil {
-                    return false
-                }
-            }
-            for i in stride(from: (q + numberOfQueens + 1), to: numberOfQueens * numberOfQueens, by: numberOfQueens + 1) {
-                // diagonal down and forward
-                guard q % numberOfQueens < i % numberOfQueens else { break }
-                if assignment.values.firstIndex(of: i) != nil {
-                    return false
-                }
+            Array(clause.combinations(ofCount: 2)).forEach { pair in
+                var temp = pair
+                for i in temp.indices { temp[i].negate() }
+                minisat.add(clause: temp)
             }
         }
         
-        return true
+        // Exactly one per column
+        for i in 0..<queensNum {
+            var clause : [Int32] = []
+            for j in stride(from: i, through: queensNum*queensNum - 1, by: queensNum) {
+                clause.append(variables[j])
+            }
+            
+            Array(clause.combinations(ofCount: 2)).forEach { pair in
+                var temp = pair
+                for i in temp.indices { temp[i].negate() }
+                minisat.add(clause: temp)
+            }
+        }
+        
+        // Exactly one per secondary diagonal
+        for i in 1..<queensNum {
+            var clause : [Int32] = []
+            var j = i * queensNum
+            while j >= queensNum {
+                clause.append(variables[j])
+                j -= (queensNum - 1)
+            }
+            clause.append(variables[j])
+            
+            Array(clause.combinations(ofCount: 2)).forEach { pair in
+                var temp = pair
+                for i in temp.indices { temp[i].negate() }
+                minisat.add(clause: temp)
+            }
+        }
+        
+        for i in (queensNum * (queensNum - 1) + 1)..<(queensNum * queensNum - 1) {
+            var clause : [Int32] = []
+            var j = i
+            while(j % queensNum != queensNum - 1 && j > 0) {
+                clause.append(variables[j])
+                j -= (queensNum - 1)
+            }
+            clause.append(variables[j])
+
+            Array(clause.combinations(ofCount: 2)).forEach { pair in
+                var temp = pair
+                for i in temp.indices { temp[i].negate() }
+                minisat.add(clause: temp)
+            }
+        }
+        
+        // Exactly one per main diagonal
+        for i in 1..<queensNum - 1 {
+            var clause : [Int32] = []
+            var j = i * queensNum
+            while j <= queensNum * queensNum {
+                clause.append(variables[j])
+                j += (queensNum + 1)
+            }
+
+            Array(clause.combinations(ofCount: 2)).forEach { pair in
+                var temp = pair
+                for i in temp.indices { temp[i].negate() }
+                minisat.add(clause: temp)
+            }
+        }
+        
+        for i in 0..<queensNum - 1 {
+            var clause : [Int32] = []
+            var j = i
+            while(j % queensNum != queensNum - 1) {
+                clause.append(variables[j])
+                j += (queensNum + 1)
+            }
+            clause.append(variables[j])
+
+            Array(clause.combinations(ofCount: 2)).forEach { pair in
+                var temp = pair
+                for i in temp.indices { temp[i].negate() }
+                minisat.add(clause: temp)
+            }
+        }
+
+        let _ = minisat.solve()
+        
+        completion(minisat, queensNum)
     }
+
 }

@@ -8,13 +8,20 @@
 import UIKit
 import Foundation
 import SwiftCSP
+import SATSolver
+import MiniSat
+import Algorithms
 
 class RootViewController: UIViewController {
+    enum Constants {
+        static let basicChessboardSize = 4
+    }
     
     private let chessboardFactory = ChessBoardTemplateFactory()
+    private let puzzleSolver = NQueensPuzzleSolver()
     
-    private var availableSizes : [Int] = Array(4...20)
-    private var numberOfQueens = 4
+    private var availableSizes : [Int] = Array(Constants.basicChessboardSize...40)
+    private var numberOfQueens = Constants.basicChessboardSize
 
     private lazy var chessboard : UIImageView = {
         var view = UIImageView()
@@ -32,12 +39,6 @@ class RootViewController: UIViewController {
     
     private var sizePicker = UIPickerView()
     
-    private lazy var activityIndicator : UIActivityIndicatorView = {
-        var indicator = UIActivityIndicatorView(style: .medium)
-        
-        return indicator
-    }()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -47,9 +48,9 @@ class RootViewController: UIViewController {
         view.backgroundColor = .systemBackground
         view.addSubviews(chessboard, sizePicker)
         
-        chessboardFactory.getChessPositions(numberOfQueens) { positions in
+        puzzleSolver.solveUsingMinisat(for: numberOfQueens) { positions, oldAmount in
             self.chessboard.image = self.chessboardFactory.drawQueens(
-                positions: positions ?? [:],
+                positions: positions,
                 chessboard: self.chessboard.image!,
                 size: self.numberOfQueens
             )
@@ -59,7 +60,6 @@ class RootViewController: UIViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
 
-        //layoutActivityIndicator()
         layoutChessboard()
         layoutPicker()
     }
@@ -80,10 +80,6 @@ class RootViewController: UIViewController {
         
         chessboard.center = view.center
     }
-    
-    private func layoutActivityIndicator() {
-        activityIndicator.center = view.center
-    }
 }
 
 extension RootViewController : UIPickerViewDataSource, UIPickerViewDelegate {
@@ -103,21 +99,24 @@ extension RootViewController : UIPickerViewDataSource, UIPickerViewDelegate {
         numberOfQueens = availableSizes[row]
         
         DispatchQueue.global(qos: .userInitiated).async {
-            self.chessboardFactory.getChessPositions(self.numberOfQueens) { positions in
-                DispatchQueue.main.async {
-                    // Check if requested number of queens is still relevant
-                    if(self.numberOfQueens == positions?.count) {
-                        do {
-                            try self.chessboard.image = self.chessboardFactory.generateImage(of: self.numberOfQueens)
-                        } catch {
-                            self.chessboard.image = UIImage(named: "checkerboardCageWhite.svg")
-                        }
-                        
-                        self.chessboard.image = self.chessboardFactory.drawQueens(
-                            positions: positions ?? [:],
-                            chessboard: self.chessboard.image!,
-                            size: self.numberOfQueens
-                        )
+            self.puzzleSolver.solveUsingMinisat(for: self.numberOfQueens) { positions, oldAmount in
+                var temporaryBoard : UIImage
+                do {
+                    try temporaryBoard = self.chessboardFactory.generateImage(of: self.numberOfQueens)
+                    
+                    temporaryBoard = self.chessboardFactory.drawQueens(
+                        positions: positions,
+                        chessboard: temporaryBoard,
+                        size: oldAmount
+                    )
+                } catch {
+                    temporaryBoard = UIImage(named: "checkerboardCageWhite.svg")!
+                }
+    
+                // Check if requested number of queens is still relevant
+                if(self.numberOfQueens == oldAmount) {
+                    DispatchQueue.main.async {
+                        self.chessboard.image = temporaryBoard
                     }
                 }
             }

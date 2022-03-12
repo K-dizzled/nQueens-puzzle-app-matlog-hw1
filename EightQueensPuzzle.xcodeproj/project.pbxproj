@@ -17,8 +17,11 @@
 		75F3A00627DA3447008A4E4A /* EightQueensPuzzleUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F3A00527DA3447008A4E4A /* EightQueensPuzzleUITestsLaunchTests.swift */; };
 		75F3A01427DA365D008A4E4A /* ChessboardFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F3A01327DA365D008A4E4A /* ChessboardFactory.swift */; };
 		75F3A01727DB7154008A4E4A /* UiView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F3A01627DB7154008A4E4A /* UiView+Extension.swift */; };
-		75F3A02027DB8036008A4E4A /* SwiftCSP in Frameworks */ = {isa = PBXBuildFile; productRef = 75F3A01F27DB8036008A4E4A /* SwiftCSP */; };
 		75F3A02227DB8382008A4E4A /* NQueensConstraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F3A02127DB8382008A4E4A /* NQueensConstraint.swift */; };
+		75F3A02527DC0BD1008A4E4A /* CryptoMiniSat in Frameworks */ = {isa = PBXBuildFile; productRef = 75F3A02427DC0BD1008A4E4A /* CryptoMiniSat */; };
+		75F3A02727DC0BD1008A4E4A /* MiniSat in Frameworks */ = {isa = PBXBuildFile; productRef = 75F3A02627DC0BD1008A4E4A /* MiniSat */; };
+		75F3A02927DC0BD1008A4E4A /* PicoSAT in Frameworks */ = {isa = PBXBuildFile; productRef = 75F3A02827DC0BD1008A4E4A /* PicoSAT */; };
+		75F3A02C27DC14B9008A4E4A /* Algorithms in Frameworks */ = {isa = PBXBuildFile; productRef = 75F3A02B27DC14B9008A4E4A /* Algorithms */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,7 +64,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				75F3A02027DB8036008A4E4A /* SwiftCSP in Frameworks */,
+				75F3A02727DC0BD1008A4E4A /* MiniSat in Frameworks */,
+				75F3A02927DC0BD1008A4E4A /* PicoSAT in Frameworks */,
+				75F3A02C27DC14B9008A4E4A /* Algorithms in Frameworks */,
+				75F3A02527DC0BD1008A4E4A /* CryptoMiniSat in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -168,7 +174,10 @@
 			);
 			name = EightQueensPuzzle;
 			packageProductDependencies = (
-				75F3A01F27DB8036008A4E4A /* SwiftCSP */,
+				75F3A02427DC0BD1008A4E4A /* CryptoMiniSat */,
+				75F3A02627DC0BD1008A4E4A /* MiniSat */,
+				75F3A02827DC0BD1008A4E4A /* PicoSAT */,
+				75F3A02B27DC14B9008A4E4A /* Algorithms */,
 			);
 			productName = EightQueensPuzzle;
 			productReference = 75F39FDF27DA3444008A4E4A /* EightQueensPuzzle.app */;
@@ -243,7 +252,8 @@
 			);
 			mainGroup = 75F39FD627DA3444008A4E4A;
 			packageReferences = (
-				75F3A01E27DB8036008A4E4A /* XCRemoteSwiftPackageReference "SwiftCSP" */,
+				75F3A02327DC0BD1008A4E4A /* XCRemoteSwiftPackageReference "SATSolver" */,
+				75F3A02A27DC14B9008A4E4A /* XCRemoteSwiftPackageReference "swift-algorithms" */,
 			);
 			productRefGroup = 75F39FE027DA3444008A4E4A /* Products */;
 			projectDirPath = "";
@@ -391,7 +401,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -446,7 +456,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -463,12 +473,14 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = L5XYL9R6G8;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = EightQueensPuzzle/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -489,12 +501,14 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = L5XYL9R6G8;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = EightQueensPuzzle/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -622,21 +636,44 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		75F3A01E27DB8036008A4E4A /* XCRemoteSwiftPackageReference "SwiftCSP" */ = {
+		75F3A02327DC0BD1008A4E4A /* XCRemoteSwiftPackageReference "SATSolver" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/davecom/SwiftCSP.git";
+			repositoryURL = "https://github.com/ltentrup/SATSolver.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 0.9.8;
+				minimumVersion = 1.0.0;
+			};
+		};
+		75F3A02A27DC14B9008A4E4A /* XCRemoteSwiftPackageReference "swift-algorithms" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apple/swift-algorithms.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		75F3A01F27DB8036008A4E4A /* SwiftCSP */ = {
+		75F3A02427DC0BD1008A4E4A /* CryptoMiniSat */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 75F3A01E27DB8036008A4E4A /* XCRemoteSwiftPackageReference "SwiftCSP" */;
-			productName = SwiftCSP;
+			package = 75F3A02327DC0BD1008A4E4A /* XCRemoteSwiftPackageReference "SATSolver" */;
+			productName = CryptoMiniSat;
+		};
+		75F3A02627DC0BD1008A4E4A /* MiniSat */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 75F3A02327DC0BD1008A4E4A /* XCRemoteSwiftPackageReference "SATSolver" */;
+			productName = MiniSat;
+		};
+		75F3A02827DC0BD1008A4E4A /* PicoSAT */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 75F3A02327DC0BD1008A4E4A /* XCRemoteSwiftPackageReference "SATSolver" */;
+			productName = PicoSAT;
+		};
+		75F3A02B27DC14B9008A4E4A /* Algorithms */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 75F3A02A27DC14B9008A4E4A /* XCRemoteSwiftPackageReference "swift-algorithms" */;
+			productName = Algorithms;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

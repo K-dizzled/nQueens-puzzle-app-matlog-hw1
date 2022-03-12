@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 import SwiftCSP
+import MiniSat
 
 class ChessBoardTemplateFactory {
     enum GeneratorError: Error {
@@ -58,7 +59,7 @@ class ChessBoardTemplateFactory {
         return chessboard
     }
     
-    func drawQueens(positions: Dictionary<Int, Int>, chessboard: UIImage, size: Int) -> UIImage {
+    func drawQueens(positions: MiniSat, chessboard: UIImage, size: Int) -> UIImage {
         let queenImage = UIImage(named: "queenImage.svg")!
         
         UIGraphicsBeginImageContext(chessboard.size)
@@ -72,7 +73,7 @@ class ChessBoardTemplateFactory {
         
         let cageSize = Int(chessboard.size.width) / size
         for i in 0..<size * size {
-            if (positions.values.firstIndex(of: i) != nil) {
+            if (positions.value(of: Int32(i + 1)) == .positive) {
                 let cageArea = CGRect(
                     x: cageSize * Int(i / size), y: cageSize * Int(i % size),
                     width: cageSize, height: cageSize
@@ -86,27 +87,5 @@ class ChessBoardTemplateFactory {
         UIGraphicsEndImageContext()
         
         return chessboardWithQueens
-    }
-    
-    func getChessPositions(_ amount: Int, completion: @escaping (Dictionary<Int, Int>?) -> Void) {
-        let variables: [Int] = Array(0..<amount)
-        var domains = Dictionary<Int, [Int]>()
-        
-        for variable in variables {
-            domains[variable] = []
-            for i in stride(from: variable, to: amount * amount, by: amount) {
-                domains[variable]?.append(i)
-            }
-        }
-        
-        var csp = CSP<Int, Int>(variables: variables, domains: domains)
-        let smmc = NQueensConstraint(variables: variables, N: amount)
-        csp.addConstraint(constraint: smmc)
-
-        if let solution = backtrackingSearch(csp: csp, mrv: true, lcv: false) {
-            completion(solution)
-        } else {
-            print("Position search failed")
-        }
     }
 }
