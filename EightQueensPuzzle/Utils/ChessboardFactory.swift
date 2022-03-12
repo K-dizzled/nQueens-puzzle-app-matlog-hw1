@@ -7,7 +7,6 @@
 
 import Foundation
 import UIKit
-import SwiftCSP
 import MiniSat
 
 class ChessBoardTemplateFactory {

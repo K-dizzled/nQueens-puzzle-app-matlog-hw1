@@ -7,7 +7,6 @@
 
 import UIKit
 import Foundation
-import SwiftCSP
 import SATSolver
 import MiniSat
 import Algorithms
