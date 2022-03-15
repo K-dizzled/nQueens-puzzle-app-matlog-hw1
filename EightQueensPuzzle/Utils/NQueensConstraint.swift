@@ -10,6 +10,7 @@ import MiniSat
 
 class NQueensPuzzleSolver {
     func solveUsingMinisat(for queensNum: Int, completion: @escaping (MiniSat, Int) -> Void) {
+        let start = DispatchTime.now()
         let minisat = MiniSat()
         
         var variables : [Int32] = []
@@ -121,6 +122,12 @@ class NQueensPuzzleSolver {
         }
 
         let _ = minisat.solve()
+        
+        let end = DispatchTime.now()
+        
+        let nanoTime = end.uptimeNanoseconds - start.uptimeNanoseconds
+        let timeInterval = Double(nanoTime) / 1_000_000_000
+        print("Time to solve using SAT: \(timeInterval) seconds")
         
         completion(minisat, queensNum)
     }

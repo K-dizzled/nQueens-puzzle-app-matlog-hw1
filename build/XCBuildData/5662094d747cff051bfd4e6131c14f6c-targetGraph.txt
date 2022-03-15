@@ -1,0 +1,50 @@
+Target dependency graph (18 targets)
+CppMiniSat in SATSolver, no dependencies
+CMiniSat in SATSolver, depends on:
+CppMiniSat in SATSolver (explicit)
+SATSolver in SATSolver, no dependencies
+MiniSat in SATSolver, depends on:
+CppMiniSat in SATSolver (explicit)
+CMiniSat in SATSolver (explicit)
+SATSolver in SATSolver (explicit)
+MiniSat in SATSolver, depends on:
+MiniSat in SATSolver (explicit)
+CppMiniSat in SATSolver (explicit)
+CMiniSat in SATSolver (explicit)
+SATSolver in SATSolver (explicit)
+CPicoSAT in SATSolver, no dependencies
+PicoSAT in SATSolver, depends on:
+CPicoSAT in SATSolver (explicit)
+SATSolver in SATSolver (explicit)
+PicoSAT in SATSolver, depends on:
+PicoSAT in SATSolver (explicit)
+CPicoSAT in SATSolver (explicit)
+SATSolver in SATSolver (explicit)
+_NumericsShims in swift-numerics, no dependencies
+RealModule in swift-numerics, depends on:
+_NumericsShims in swift-numerics (explicit)
+RealModule in swift-numerics, depends on:
+RealModule in swift-numerics (explicit)
+_NumericsShims in swift-numerics (explicit)
+Algorithms in swift-algorithms, depends on:
+RealModule in swift-numerics (explicit)
+Algorithms in swift-algorithms, depends on:
+Algorithms in swift-algorithms (explicit)
+RealModule in swift-numerics (explicit)
+CppCryptoMiniSat in SATSolver, no dependencies
+CCryptoMiniSat in SATSolver, depends on:
+CppCryptoMiniSat in SATSolver (explicit)
+CryptoMiniSat in SATSolver, depends on:
+CppCryptoMiniSat in SATSolver (explicit)
+CCryptoMiniSat in SATSolver (explicit)
+SATSolver in SATSolver (explicit)
+CryptoMiniSat in SATSolver, depends on:
+CryptoMiniSat in SATSolver (explicit)
+CppCryptoMiniSat in SATSolver (explicit)
+CCryptoMiniSat in SATSolver (explicit)
+SATSolver in SATSolver (explicit)
+EightQueensPuzzle in EightQueensPuzzle, depends on:
+MiniSat in SATSolver (explicit)
+PicoSAT in SATSolver (explicit)
+Algorithms in swift-algorithms (explicit)
+CryptoMiniSat in SATSolver (explicit)
